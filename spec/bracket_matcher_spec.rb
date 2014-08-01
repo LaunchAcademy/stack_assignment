@@ -26,6 +26,11 @@ describe BracketMatcher do
     expect(matcher.valid?).to eq(false)
   end
 
+  it 'returns false when brackets are not ordered correctly' do
+    matcher = BracketMatcher.new('([)]')
+    expect(matcher.valid?).to eq(false)
+  end
+
   it 'returns true for a complex, matching set of brackets' do
     matcher = BracketMatcher.new('([{([])}])')
     expect(matcher.valid?).to eq(true)
