@@ -22,7 +22,7 @@ describe Stack do
     expect(stack.empty?).to eq(true)
   end
 
-  it 'raises exception if stack is empty' do
+  it 'raises an exception if stack is empty' do
     expect { stack.pop }.to raise_error(StackUnderflow)
   end
 end
