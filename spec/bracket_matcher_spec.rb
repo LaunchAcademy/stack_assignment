@@ -16,11 +16,6 @@ describe BracketMatcher do
     expect(matcher.valid?).to eq(true)
   end
 
-  it 'returns true for a matching set of angle brackets' do
-    matcher = BracketMatcher.new('<>')
-    expect(matcher.valid?).to eq(true)
-  end
-
   it 'returns false for a non-matching set of brackets' do
     matcher = BracketMatcher.new('(]')
     expect(matcher.valid?).to eq(false)
@@ -37,7 +32,7 @@ describe BracketMatcher do
   end
 
   it 'returns false for a complex, non-matching set of brackets' do
-    matcher = BracketMatcher.new('(<>){}{}{}{}[[[[[]]]))(((]]]<)(}>[)')
+    matcher = BracketMatcher.new('(){}{}{}{}[[[[[]]]))(((]]])(}[)')
     expect(matcher.valid?).to eq(false)
   end
 end
