@@ -10,6 +10,17 @@ describe Stack do
     stack.push(3.14159)
   end
 
+  context '#empty?' do
+    it 'returns true when empty' do
+      expect(stack.empty?).to eq(true)
+    end
+
+    it 'returns false when not empty' do
+      stack.push("Flying Fish")
+      expect(stack.empty?).to eq(false)
+    end
+  end
+
   it 'lets us see the topmost item' do
     stack.push(128)
     expect(stack.peek).to eq(128)
@@ -18,8 +29,9 @@ describe Stack do
 
   it 'removes and returns the topmost item' do
     stack.push(42)
-    expect(stack.pop).to eq(42)
-    expect(stack.empty?).to eq(true)
+    stack.push(99)
+    stack.push(105)
+    expect(stack.pop).to eq(105)
   end
 
   it 'raises an exception if stack is empty' do
